@@ -9,6 +9,8 @@ import { HomeComponent }   from './home/home.component';
 import { AboutComponent }      from './about/about.component';
 import { ContactComponent }  from './contact/contact.component';
 import { ExperienceComponent }  from './experience/experience.component';
+import { NavComponent } from './nav/nav.component';
+import { CollapseModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { ExperienceComponent }  from './experience/experience.component';
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CollapseModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
