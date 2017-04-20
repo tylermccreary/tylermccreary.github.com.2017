@@ -4,7 +4,7 @@ nav.navbar.shrink {
   height: 0px;
   opacity: 0;
 
-  .navbar-collapse.collapse ul li a {
+  .navbar-collapse.collapse ul li a, .navbar-toggle.collapsed {
     visibility: hidden;
     opacity: 0;
     -webkit-transition: all 0.4s ease;
@@ -12,13 +12,34 @@ nav.navbar.shrink {
   }
 }
 
+.nav.navbar-nav {
+  width: 300px; //45%;
+  margin: 0 auto;
+  float: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar-collapse.collapse li a:hover, .navbar-default .navbar-nav .is-active {
+    color: red;
+    border-bottom: 4px solid red;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .nav.navbar-nav {
+    width: 90%;
+    margin: 0 auto;
+    float: none;
+  }
+
+  .navbar-collapse.collapse li a:hover, .navbar-default .navbar-nav .is-active {
+    color: red;
+    border-left: 4px solid red;
+  }
+}
+
 nav.navbar{
    // Animation
    -webkit-transition: all 0.4s ease;
    transition: all 0.4s ease;
-}
-
-.container-fluid {
-  margin: 0 auto;
-  width: 50%;
 }

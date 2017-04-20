@@ -11,6 +11,9 @@ import { ContactComponent }  from './contact/contact.component';
 import { ExperienceComponent }  from './experience/experience.component';
 import { NavComponent } from './nav/nav.component';
 import { CollapseModule } from 'ngx-bootstrap';
+import { BioComponent } from './about/bio/bio.component';
+import { CodingInterestsComponent } from './about/codingInterests/coding.component';
+import { HobbiesComponent } from './about/hobbies/hobbies.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { CollapseModule } from 'ngx-bootstrap';
     AboutComponent,
     ContactComponent,
     ExperienceComponent,
-    NavComponent
+    NavComponent,
+    BioComponent,
+    CodingInterestsComponent,
+    HobbiesComponent
   ],
   imports: [
     BrowserModule,
