@@ -13,6 +13,7 @@ export class NavComponent {
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
+    
     var thisScroll = $(document).scrollTop();
     if (thisScroll - this.lastScroll > 0) {
       $('nav').addClass('shrink');

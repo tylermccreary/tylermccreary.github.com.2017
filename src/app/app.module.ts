@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+import { MnFullpageModule } from 'ngx-fullpage';
 
 import { AppComponent } from './app.component';
 import { HomeComponent }   from './home/home.component';
@@ -32,7 +33,8 @@ import { HobbiesComponent } from './about/hobbies/hobbies.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    MnFullpageModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

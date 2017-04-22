@@ -23,6 +23,7 @@
     "angular-ui-bootstrap": "^2.5.0",
     "core-js": "^2.4.1",
     "jquery": "^3.2.1",
+    "ngx-fullpage": "^4.0.5",
     "rxjs": "^5.1.0",
     "zone.js": "^0.7.6"
   },
