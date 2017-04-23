@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+// import { ActivatedRoute } from '@angular/router';
+// import { MnFullpageOptions, MnFullpageService } from '@fullpage/index';
 declare var $: any;
 
 @Component({
@@ -8,6 +10,10 @@ declare var $: any;
 })
 export class HomeComponent {
   title = 'Home!';
+
+  // constructor(private route: ActivatedRoute) { }
+  // constructor(public fullpageService: MnFullpageService) {
+  //   }
 
   ngOnInit () {
     console.log("HOME");
@@ -28,9 +34,18 @@ export class HomeComponent {
         }
       },
       anchors: ['firstPage', 'secondPage', 'thirdPage'],
-	    menu: '#myMenu'
+	    menu: '#fp-nav',
+      css3: true,
+      controlArrows: false,
+      scrollingSpeed: 1000
     });
 
+    // this.route.fragment.subscribe(f => {
+    //   console.log("alkdsjflak");
+    //   const element = document.querySelector("#" + f)
+    //   console.log(element);
+    //   if (element) element.scrollIntoView(element)
+    // })
 
   }
 }
