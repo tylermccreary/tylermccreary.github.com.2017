@@ -15,9 +15,10 @@ nav.navbar.shrink:hover {
   height: 54px;
   opacity: 1;
 
-  .navbar-collapse.collapse ul li a, .navbar-toggle.collapsed {
+  .navbar-collapse.collapse ul li a, .navbar-toggle.collapsed, .container-fluid {
     visibility: visible;
     opacity: 1;
+    background-color: #fff;
   }
 }
 
