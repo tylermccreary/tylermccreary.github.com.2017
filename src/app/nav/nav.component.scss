@@ -11,6 +11,16 @@ nav.navbar.shrink {
   }
 }
 
+nav.navbar.shrink:hover {
+  height: 54px;
+  opacity: 1;
+
+  .navbar-collapse.collapse ul li a, .navbar-toggle.collapsed {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
 .nav.navbar-nav {
   width: 300px; //45%;
   margin: 0 auto;
