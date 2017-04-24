@@ -1,4 +1,3 @@
-
 nav.navbar.shrink {
   min-height: 0px;
   height: 0px;
@@ -20,8 +19,8 @@ nav.navbar.shrink {
 
 @media only screen and (min-width: 768px) {
   .navbar-collapse.collapse li a:hover, .navbar-default .navbar-nav .is-active {
-    color: red;
-    border-bottom: 4px solid red;
+    color: #ced0cd;
+    border-bottom: 4px solid #ced0cd;
   }
 }
 
@@ -33,8 +32,8 @@ nav.navbar.shrink {
   }
 
   .navbar-collapse.collapse li a:hover, .navbar-default .navbar-nav .is-active {
-    color: red;
-    border-left: 4px solid red;
+    color: #ced0cd;
+    border-left: 4px solid #ced0cd;
   }
 }
 

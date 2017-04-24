@@ -41,7 +41,7 @@ export class HomeComponent {
         } else if (index == 2 && direction == "down") {//thirdPage
           $('body').css("background-color", "#22b2c7");
         } else {//secondPage
-          $('body').css("background-color", "#309F99");//#17B3E3
+          $('body').css("background-color", "#374661");//#17B3E3
         }
       },
       anchors: ['firstPage', 'secondPage', 'thirdPage'],

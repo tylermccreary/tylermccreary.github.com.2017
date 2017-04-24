@@ -25,10 +25,11 @@
       height: 4px;
       width: 4px;
       border: 0;
-      background-color: black;
+      background-color: white;
       transition: all 0.1s ease-in-out;
       margin: 5px;
       top: 5px;
+
     }
 
     .active span{
@@ -41,6 +42,15 @@
 
 }
 
+.fp-section {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.fp-section.active {
+  opacity: 1;
+}
+
 #home-fullpage {
   top: -20px;
 }
@@ -48,25 +58,13 @@
 body {
   transition: background-color 1s;
   background-color: #ced0cd;
+
+  .fp-tableCell {
+    height: 100%;
+
+    .section-body {
+      padding: 10%;
+      color: white;
+    }
+  }
 }
-
-//
-//
-// .section:nth-child(1) {
-//   background-color: red;
-// }
-//
-// .section:nth-child(2) {
-//   background-color: blue;
-// }
-
-
-// app-root, app-nav {
-//   height: 100%;
-//   margin: 0;
-//
-//   #fp-nav {
-//     position: absolute;
-//     top: 50% !important;
-//   }
-// }
