@@ -1,4 +1,50 @@
-app-root, app-nav {
-  height: 100%;
-  margin: 0;
+//@import "~fullpage.js/dist/jquery.fullpage.css";
+
+#fp-nav {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  z-index: 1;
+
+  ul li {
+    display: block;
+    margin: 7px;
+    height: 14px;
+    width: 14px;
+
+    a {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: block;
+    }
+
+    span {
+      position: relative;
+      display: block;
+      border-radius: 50%;
+      height: 4px;
+      width: 4px;
+      border: 0;
+      background-color: black;
+      transition: all 0.1s ease-in-out;
+    }
+
+    .active span{
+      height: 14px;
+      width: 14px;
+    }
+  }
+
 }
+
+
+// app-root, app-nav {
+//   height: 100%;
+//   margin: 0;
+//
+//   #fp-nav {
+//     position: absolute;
+//     top: 50% !important;
+//   }
+// }

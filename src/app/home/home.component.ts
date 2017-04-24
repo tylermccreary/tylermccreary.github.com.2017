@@ -37,7 +37,8 @@ export class HomeComponent {
 	    menu: '#fp-nav',
       css3: true,
       controlArrows: false,
-      scrollingSpeed: 1000
+      scrollingSpeed: 1000,
+      navigation: true
     });
 
     // this.route.fragment.subscribe(f => {
