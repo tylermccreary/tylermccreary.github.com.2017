@@ -32,6 +32,17 @@ export class HomeComponent {
         } else {
           $('nav').removeClass('shrink');
         }
+
+        console.log(index);
+
+        //firstpage
+        if (index == 2 && direction == "up") {
+          $('body').css("background-color", "#ced0cd");
+        } else if (index == 2 && direction == "down") {//thirdPage
+          $('body').css("background-color", "#22b2c7");
+        } else {//secondPage
+          $('body').css("background-color", "#309F99");//#17B3E3
+        }
       },
       anchors: ['firstPage', 'secondPage', 'thirdPage'],
 	    menu: '#fp-nav',

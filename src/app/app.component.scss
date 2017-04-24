@@ -1,5 +1,4 @@
 //@import "~fullpage.js/dist/jquery.fullpage.css";
-
 #fp-nav {
   position: absolute;
   top: 50%;
@@ -41,6 +40,25 @@
   }
 
 }
+
+#home-fullpage {
+  top: -20px;
+}
+
+body {
+  transition: background-color 1s;
+  background-color: #ced0cd;
+}
+
+//
+//
+// .section:nth-child(1) {
+//   background-color: red;
+// }
+//
+// .section:nth-child(2) {
+//   background-color: blue;
+// }
 
 
 // app-root, app-nav {
