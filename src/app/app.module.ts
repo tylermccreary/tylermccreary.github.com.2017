@@ -15,6 +15,7 @@ import { CollapseModule } from 'ngx-bootstrap';
 import { BioComponent } from './about/bio/bio.component';
 import { CodingInterestsComponent } from './about/codingInterests/coding.component';
 import { HobbiesComponent } from './about/hobbies/hobbies.component';
+// import { BodyComponent } from './body/body.component';
 
 @NgModule({
   declarations: [
