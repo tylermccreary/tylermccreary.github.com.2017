@@ -13,16 +13,28 @@
         <div id="navbar" class="navbar-collapse collapse" [collapse]="isCollapsed">
             <ul class="nav navbar-nav">
                 <li router-active>
-                    <a [routerLinkActive]="['is-active']" routerLink="/home" >HOME<span class="sr-only">(current)</span></a>
+                    <a [routerLinkActive]="['is-active']" routerLink="/home" (click)="collapse()">
+                      HOME
+                      <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li router-active>
-                    <a  [routerLinkActive]="['is-active']" routerLink="/about">ABOUT<span class="sr-only">(current)</span></a>
+                    <a  [routerLinkActive]="['is-active']" routerLink="/about" (click)="collapse()">
+                      ABOUT
+                      <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li router-active>
-                    <a [routerLinkActive]="['is-active']" routerLink="/experience">EXP<span class="sr-only">(current)</span></a>
+                    <a [routerLinkActive]="['is-active']" routerLink="/experience" (click)="collapse()">
+                      EXP
+                      <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li router-active>
-                    <a [routerLinkActive]="['is-active']" routerLink="/contact">CONTACT<span class="sr-only">(current)</span></a>
+                    <a [routerLinkActive]="['is-active']" routerLink="/contact" (click)="collapse()">
+                      CONTACT
+                      <span class="sr-only">(current)</span>
+                    </a>
                 </li>
             </ul>
         </div>

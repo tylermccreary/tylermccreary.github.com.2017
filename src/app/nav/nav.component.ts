@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CollapseDirective } from 'ngx-bootstrap';
 declare var $: any;
 
@@ -9,22 +9,21 @@ declare var $: any;
 })
 export class NavComponent {
   isCollapsed = true;
-  lastScroll = 0;
 
-  @HostListener("window:scroll", [])
-  onWindowScroll() {
-    
-    var thisScroll = $(document).scrollTop();
-    if (thisScroll - this.lastScroll > 0) {
-      $('nav').addClass('shrink');
-    } else {
-      $('nav').removeClass('shrink');
-    }
-    this.lastScroll = thisScroll;
-    // if ($(document).scrollTop() > 50) {
-    //   $('nav').addClass('shrink');
-    // } else {
-    //   $('nav').removeClass('shrink');
-    // }
+  ngOnInit () {
+    var navComponent = this;
+    $('nav').mouseleave(function() {
+      $('#navbar').addClass("hidden-nav");
+    });
+
+    $('nav').mouseover(function() {
+      $('#navbar').removeClass("hidden-nav");
+    });
   }
+
+  collapse = () => {
+    this.isCollapsed = true;
+  }
+
+
 }

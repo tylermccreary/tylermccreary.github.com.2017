@@ -11,7 +11,7 @@ export class AboutComponent extends BodyComponent {
   description = "Software Developer"
 
   ngOnInit () {
-    var anchors = ['firstPage', 'secondPage', 'thirdPage'];
+    var anchors = ['bio', 'interests', 'hobbies'];
     var colors = ['#374661', '#ced0cd', '#22b2c7'];
     super.init(anchors, colors);
   }

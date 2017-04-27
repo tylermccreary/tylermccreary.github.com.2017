@@ -19,6 +19,7 @@ export class BodyComponent {
         }
 
         $('body').css("background-color", colors[nextIndex - 1]);
+        $('nav.navbar-default').css("background-color", colors[nextIndex - 1]);
       },
       anchors: anchors,
 	    menu: '#fp-nav',
