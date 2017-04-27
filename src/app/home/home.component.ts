@@ -11,5 +11,7 @@ export class HomeComponent {
   description = "Software Developer"
 
   ngOnInit () {
+    $('#fp-nav').remove();
+    $('body').css('background-color', '#374661')
   }
 }

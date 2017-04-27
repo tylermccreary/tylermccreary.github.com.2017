@@ -1,23 +1,40 @@
-#linkedin-photo {
-  border-radius: 50%;
-  height: 20vh;
-  width: auto;
-  margin: 5%;
-  border: 2px solid white;
-}
+#home-fullpage {
+  top: -20px;
 
-.title-span {
-  margin: 0 auto;
-  width: 250px;
-  height: 2px;
-  background-color: #FF9912;
-}
+  section {
+    padding: 10% 0 10% 0;
+    color: white;
 
-h1 {
-  margin-top: 10px;
-}
+    .container.home {
+      margin-top: 5vh;
+      text-align: center;
 
+      .title-span {
+        margin: 0 auto;
+        width: 250px;
+        height: 2px;
+        background-color: #FF9912;
+      }
 
-.fp-section {
-  opacity: 1;
+      h1 {
+        margin-top: 10px;
+      }
+
+      #linkedin-photo {
+        border-radius: 50%;
+        height: 20vh;
+        width: auto;
+        margin: 5%;
+        border: 2px solid white;
+      }
+
+      .home-icon {
+        a i {
+          color: #FF9912;
+          font-size: 8vh;
+          margin: 2vh;
+        }
+      }
+    }
+  }
 }
