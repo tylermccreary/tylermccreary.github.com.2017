@@ -1,4 +1,5 @@
-//@import "~fullpage.js/dist/jquery.fullpage.css";
+
+
 #fp-nav {
   position: absolute;
   top: 50%;
@@ -25,7 +26,7 @@
       height: 4px;
       width: 4px;
       border: 0;
-      background-color: white;
+      background-color: #FF9912;
       transition: all 0.1s ease-in-out;
       margin: 5px;
       top: 5px;
@@ -45,6 +46,7 @@
 .fp-section {
   opacity: 0;
   transition: opacity 2s ease-in-out;
+  text-align: center;
 }
 
 .fp-section.active {
@@ -55,9 +57,25 @@
   top: -20px;
 }
 
+.home-icon {
+  a i {
+    color: #FF9912;
+    font-size: 8vh;
+    margin: 2vh;
+  }
+}
+
+.container.home {
+  margin-top: 5vh;
+}
+
 body {
   transition: background-color 1s;
-  background-color: #ced0cd;
+  background-color: #374661;
+
+  h1 {
+    font-family: serif;
+  }
 
   .fp-tableCell {
     height: 100%;
