@@ -12,6 +12,7 @@ export class HomeComponent {
 
   ngOnInit () {
     $('#fp-nav').remove();
-    $('body').css('background-color', '#374661')
+    $('body').css('background-color', '#374661');
+    $('nav.navbar-default').css("background-color", '#374661');
   }
 }

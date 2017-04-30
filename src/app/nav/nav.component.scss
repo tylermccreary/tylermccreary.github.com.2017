@@ -4,9 +4,32 @@ nav {
       li {
         a {
           color: white;
+          font-size: 16px;
+          transition: font-size 0.3s ease-in-out;
+        }
+
+        a:hover, .is-active {
+          color: #FF9912;
+          font-size: 18px;
+        }
+
+        @media only screen and (min-width: 768px) {
+          a:hover, .is-active {
+            border-bottom: 4px solid #FF9912;
+          }
+        }
+
+        @media only screen and (max-width: 767px) {
+          a:hover, .is-active {
+            border-left: 4px solid #FF9912;
+          }
         }
       }
     }
+
+    // .navber-right li a {
+    //   border: none;
+    // }
   }
 }
 
@@ -24,6 +47,11 @@ nav.navbar-default {
     .icon-bar {
       background-color: white;
     }
+  }
+
+  .navbar-collapse {
+    transition: background-color 1s;
+    transition: height 1s;
   }
 
   .navbar-collapse.show {

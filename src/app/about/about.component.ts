@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BodyComponent } from '../body/body.component';
+declare var $: any;
 
 @Component({
   selector: 'app-about',
@@ -11,7 +12,9 @@ export class AboutComponent extends BodyComponent {
   description = "Software Developer"
 
   ngOnInit () {
-    var anchors = ['bio', 'interests', 'hobbies'];
+    $('body').css('background-color', '#374661');
+    $('nav.navbar-default').css("background-color", '#374661');
+    var anchors = ['education', 'interests'];
     var colors = ['#374661', '#ced0cd', '#22b2c7'];
     super.init(anchors, colors);
   }
