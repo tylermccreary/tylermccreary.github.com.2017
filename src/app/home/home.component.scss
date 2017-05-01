@@ -10,14 +10,6 @@
       margin-top: 5vh;
       text-align: center;
 
-
-          .title-span {
-            margin: 0 auto;
-            width: 250px;
-            height: 2px;
-            background-color: #FF9912;
-          }
-
       h1 {
         margin-top: 10px;
       }
@@ -26,7 +18,7 @@
         border-radius: 50%;
         height: 20vh;
         width: auto;
-        margin: 5%;
+        margin: 3%;
         border: 2px solid white;
       }
 
@@ -39,6 +31,12 @@
               color: #FF9912;
               font-size: 8vh;
               margin: 2vh;
+
+              transition: font-size 0.3s ease-in-out;
+            }
+
+            i:hover {
+              font-size: 9vh;
             }
           }
         // }

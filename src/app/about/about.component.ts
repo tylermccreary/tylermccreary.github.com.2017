@@ -12,10 +12,10 @@ export class AboutComponent extends BodyComponent {
   description = "Software Developer"
 
   ngOnInit () {
-    $('body').css('background-color', '#374661');
-    $('nav.navbar-default').css("background-color", '#374661');
+    $('body').css('background-color', '#187FA3');
+    $('nav.navbar-default').css("background-color", '#187FA3');
     var anchors = ['education', 'interests'];
-    var colors = ['#374661', '#ced0cd', '#22b2c7'];
+    var colors = ['#187FA3', '#B84846'];
     super.init(anchors, colors);
   }
 }

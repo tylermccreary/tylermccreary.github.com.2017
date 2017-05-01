@@ -6,8 +6,23 @@ body {
 
   h1 {
     font-family: serif;
+    margin-top: 10px;
   }
 
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .container {
+    margin-top: 5vh;
+    .title-span {
+      margin: 0 auto;
+      width: 250px;
+      height: 2px;
+      background-color: #FF9912;
+    }
+  }
 
   .fp-tableCell {
     height: 100%;

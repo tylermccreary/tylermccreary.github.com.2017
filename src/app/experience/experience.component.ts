@@ -10,10 +10,10 @@ declare var $: any;
 export class ExperienceComponent extends BodyComponent {
   title = 'Experience!';
   ngOnInit () {
-    $('body').css('background-color', '#44c8f5');
-    $('nav.navbar-default').css('background-color', '#44c8f5');
-    var anchors = ['at&t', 'cerner', 'vert', 'anchor', 'projects'];
-    var colors = ['#44c8f5', '#0C9BD5', '#00cc90', '#003366', '#23CCAE'];
+    $('body').css('background-color', '#0574ac');
+    $('nav.navbar-default').css('background-color', '#0574ac');
+    var anchors = ['at&t', 'cerner', 'vert', 'anchor', 'projects', 'hackathon'];
+    var colors = ['#0574ac', '#0C9BD5', '#00cc90', '#003366', '#23CCAE', '#94493E'];//'#CF6757'];
     super.init(anchors, colors);
   }
 }
