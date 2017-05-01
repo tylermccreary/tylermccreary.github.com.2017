@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { BodyComponent } from '../body/body.component';
+declare var $: any;
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss', '../body/body.component.scss']
 })
-export class AboutComponent implements OnInit {
-  title = 'About!';
+export class AboutComponent extends BodyComponent {
+  name = "Tyler McCreary";
+  description = "Software Developer"
 
-  constructor(private route: ActivatedRoute) { }
-
-  ngOnInit() {
-    this.route.fragment.subscribe(f => {
-      const element = document.querySelector("#" + f)
-      if (element) element.scrollIntoView(element)
-    })
+  ngOnInit () {
+    $('body').css('background-color', '#187FA3');
+    $('nav.navbar-default').css("background-color", '#187FA3');
+    var anchors = ['education', 'interests'];
+    var colors = ['#187FA3', '#B84846'];
+    super.init(anchors, colors);
   }
 }

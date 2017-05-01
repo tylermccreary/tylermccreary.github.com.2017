@@ -13,17 +13,61 @@
         <div id="navbar" class="navbar-collapse collapse" [collapse]="isCollapsed">
             <ul class="nav navbar-nav">
                 <li router-active>
-                    <a [routerLinkActive]="['is-active']" routerLink="/home" >HOME<span class="sr-only">(current)</span></a>
+                    <a [routerLinkActive]="['is-active']" routerLink="/home" (click)="collapse()">
+                      HOME
+                      <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li router-active>
-                    <a  [routerLinkActive]="['is-active']" routerLink="/about">ABOUT<span class="sr-only">(current)</span></a>
+                    <a  [routerLinkActive]="['is-active']" routerLink="/about" (click)="collapse()">
+                      ABOUT
+                      <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li router-active>
-                    <a [routerLinkActive]="['is-active']" routerLink="/experience">EXP<span class="sr-only">(current)</span></a>
+                    <a [routerLinkActive]="['is-active']" routerLink="/experience" (click)="collapse()">
+                      EXP
+                      <span class="sr-only">(current)</span>
+                    </a>
                 </li>
                 <li router-active>
-                    <a [routerLinkActive]="['is-active']" routerLink="/contact">CONTACT<span class="sr-only">(current)</span></a>
+                    <a [routerLinkActive]="['is-active']" routerLink="/contact" (click)="collapse()">
+                      CONTACT
+                      <span class="sr-only">(current)</span>
+                    </a>
                 </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a href="https://www.linkedin.com/in/tyler-mccreary-a736b2a4/" target="_blank">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/tylermccreary" target="_blank">
+                  <i class="fa fa-github"></i>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:tjmccreary@gmail.com">
+                  <i class="fa fa-envelope"></i>
+                </a>
+              </li>
+              <li>
+                <a href="../../assets/TylerMcCrearyResume.pdf" download>
+                  <i class="fa fa-download"></i>
+                </a>
+              </li>
+              <!-- <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </li> -->
             </ul>
         </div>
     </div>

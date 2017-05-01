@@ -1,0 +1,9 @@
+.fp-section {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+  text-align: center;
+}
+
+.fp-section.active {
+  opacity: 1;
+}
