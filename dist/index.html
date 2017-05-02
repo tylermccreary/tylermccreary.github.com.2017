@@ -6,15 +6,25 @@
   <base href="https://tylermccreary.github.io">
   <!-- This stores the URL the user was attempting to go to in sessionStorage,
   and then redirects all 404 responses to the app’s index.html page -->
-  <!-- See http://www.backalleycoder.com/2016/05/13/sghpa-the-single-page-app-hack-for-github-pages/ -->
   <script>
     sessionStorage.redirect = location.href;
   </script>
-  <meta http-equiv="refresh" content="0;URL='https://tylermccreary.github.io'"></meta>
+  <meta http-equiv="refresh" content="0; URL='https://tylermccreary.github.io'"></meta>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link href="styles.1c71caeeb390a42644bd.bundle.css" rel="stylesheet"/></head>
+
+<script>
+  (function(){
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
+
 <body>
   <app-root>Loading...</app-root>
 <script type="text/javascript" src="inline.b52f569b4e73e183cc93.bundle.js"></script><script type="text/javascript" src="polyfills.efeeeb0ad153864f7af4.bundle.js"></script><script type="text/javascript" src="scripts.a42ca7b23639c3de9e7f.bundle.js"></script><script type="text/javascript" src="vendor.b54bfb06061291ddbd8d.bundle.js"></script><script type="text/javascript" src="main.10908c62d89d015ef2a9.bundle.js"></script></body>
