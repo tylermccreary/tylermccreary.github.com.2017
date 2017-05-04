@@ -21,7 +21,7 @@ body {
     transition: font-size 0.3s ease-in-out;
   }
 
-  a:hover {
+  a:hover, a:focus {
     color: #FF9912;
     font-size: 18px;
     text-decoration: none;
