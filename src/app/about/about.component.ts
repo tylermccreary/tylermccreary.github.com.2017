@@ -4,8 +4,7 @@ declare var $: any;
 
 @Component({
   selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss', '../body/body.component.scss']
+  templateUrl: './about.component.html'
 })
 export class AboutComponent extends BodyComponent {
   name = "Tyler McCreary";
@@ -15,7 +14,7 @@ export class AboutComponent extends BodyComponent {
     $('body').css('background-color', '#187FA3');
     $('nav.navbar-default').css("background-color", '#187FA3');
     var anchors = ['education', 'interests'];
-    var colors = ['#187FA3', '#B84846'];
+    var colors = ['#187FA3', '#853433'];
     super.init(anchors, colors);
   }
 }

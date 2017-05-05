@@ -11,7 +11,7 @@ export class ContactComponent {
 
   ngOnInit () {
     $('#fp-nav').remove();
-    $('body').css('background-color', '#00915F');
-    $('nav.navbar-default').css("background-color", '#00915F');
+    $('body').css('background-color', '#005E3E');
+    $('nav.navbar-default').css("background-color", '#005E3E');
   }
 }
