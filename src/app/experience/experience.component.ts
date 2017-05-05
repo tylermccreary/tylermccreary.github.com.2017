@@ -4,8 +4,7 @@ declare var $: any;
 
 @Component({
   selector: 'app-about',
-  templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.scss']
+  templateUrl: './experience.component.html'
 })
 export class ExperienceComponent extends BodyComponent {
   title = 'Experience!';

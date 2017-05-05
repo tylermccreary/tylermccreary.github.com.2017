@@ -4,6 +4,60 @@ body {
   background-color: #374661;
   overflow: hidden;
 
+  section {
+    padding: 10% 0 10% 0;
+    color: white;
+
+    .container {
+      margin-top: 5vh;
+      text-align: center;
+
+      #linkedin-photo {
+        border-radius: 50%;
+        height: 20vh;
+        width: auto;
+        margin: 3%;
+        border: 2px solid white;
+      }
+
+      .title-span {
+        margin: 0 auto;
+        width: 250px;
+        height: 2px;
+        background-color: #FF9912;
+      }
+
+      h1 {
+        margin-top: 10px;
+      }
+
+      .icons {
+        // .icon-container {
+        //   width: 30%;
+        //   float: left;
+          a {
+            i {
+              color: #FF9912;
+              font-size: 8vh;
+              margin: 2vh;
+              transition: font-size 0.3s ease-in-out;
+            }
+
+            i:hover {
+              font-size: 9vh;
+            }
+          }
+        // }
+      }
+    }
+  }
+
+
+  .highlight {
+    font-style: italic;
+    font-weight: bold;
+  }
+
   h1 {
     font-family: serif;
     margin-top: 10px;
