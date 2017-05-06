@@ -10,20 +10,7 @@ declare var $: any;
 export class NavComponent {
   isCollapsed = true;
 
-  ngOnInit () {
-    var navComponent = this;
-    $('nav').mouseleave(function() {
-      $('#navbar').addClass("hidden-nav");
-    });
-
-    $('nav').mouseover(function() {
-      $('#navbar').removeClass("hidden-nav");
-    });
-  }
-
   collapse = () => {
     this.isCollapsed = true;
   }
-
-
 }

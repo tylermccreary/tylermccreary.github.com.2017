@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BodyComponent } from '../body/body.component';
+import { Color } from '../color';
 declare var $: any;
 
 @Component({
@@ -11,10 +12,10 @@ export class AboutComponent extends BodyComponent {
   description = "Software Developer"
 
   ngOnInit () {
-    $('body').css('background-color', '#187FA3');
-    $('nav.navbar-default').css("background-color", '#187FA3');
+    $('body').css('background-color', Color.educationBackground);
+    $('nav.navbar-default').css("background-color", Color.educationBackground);
     var anchors = ['education', 'interests'];
-    var colors = ['#187FA3', '#853433'];
+    var colors = [Color.educationBackground, Color.interestsBackground];
     super.init(anchors, colors);
   }
 }

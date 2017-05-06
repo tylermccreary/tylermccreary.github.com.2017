@@ -1,7 +1,6 @@
 declare var $: any;
 
 export class BodyComponent {
-
   init (anchors, colors) {
     console.log("Body");
     if($('html').hasClass('fp-enabled')){
@@ -10,7 +9,6 @@ export class BodyComponent {
 
     $('#body-fullpage').fullpage({
       onLeave: function(index, nextIndex, direction){
-        var leavingSection = $(this);
 
         if (direction == 'down') {
           $('nav').addClass('shrink');

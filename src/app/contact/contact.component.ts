@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Color } from '../color';
 declare var $: any;
 
 @Component({
@@ -10,7 +11,7 @@ export class ContactComponent {
 
   ngOnInit () {
     $('#fp-nav').remove();
-    $('body').css('background-color', '#005E3E');
-    $('nav.navbar-default').css("background-color", '#005E3E');
+    $('body').css('background-color', Color.contactBackground);
+    $('nav.navbar-default').css("background-color", Color.contactBackground);
   }
 }
