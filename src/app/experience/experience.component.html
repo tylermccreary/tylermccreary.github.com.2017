@@ -17,18 +17,18 @@
             </span>
           </p>
           <br>
-          <div *ngIf="!viewportSmall" [@flyInOut]="viewportSmall">
-            <p>
-              Participated in two company-wide Hackathons.
-              <span class="highlight">
-                Hackathon Finalist (top 7 of 33 teams).
-              </span>
+          <p>
+            Participated in two company-wide Hackathons.
+            <span class="highlight">
+              Hackathon Finalist (top 7 of 33 teams).
+            </span>
+            <span *ngIf="!viewportSmall" [@flyInOut]="viewportSmall">
               Created a multiplatform mobile application
               to track dumpsters that need to be serviced. Technologies used:
               Ionic 2, Google Maps API, AT&amp;T IoT Starter kit.
-            </p>
-            <br>
-          </div>
+            </span>
+          </p>
+          <br>
           <p>
             Additional information can be found:
             <br>

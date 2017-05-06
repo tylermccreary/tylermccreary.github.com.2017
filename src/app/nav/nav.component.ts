@@ -9,8 +9,24 @@ declare var $: any;
 })
 export class NavComponent {
   isCollapsed = true;
+  navHover = false;
 
   collapse = () => {
     this.isCollapsed = true;
+  }
+
+  ngOnInit () {
+    var ctrl = this;
+    $('nav').mouseover(function() {
+      ctrl.navHover = true;
+    });
+    $('nav').mouseleave(function() {
+      ctrl.navHover = false;
+    });
+    $('body').click(function() {
+      if (!ctrl.navHover) {
+        ctrl.collapse();
+      }
+    });
   }
 }

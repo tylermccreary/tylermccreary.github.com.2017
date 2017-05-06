@@ -1,5 +1,5 @@
 export class Color {
-  public static interactive = "#FF9912"; //gold
+  public static interactive = "#FF9912";
   public static homeBackground = "#374661";
   public static educationBackground = "#187FA3";
   public static interestsBackground = "#853433";

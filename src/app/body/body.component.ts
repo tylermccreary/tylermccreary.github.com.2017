@@ -5,10 +5,14 @@ export class BodyComponent {
 
   init (anchors, colors) {
     var ctrl = this;
-    window.addEventListener("orientationchange", function() {
-      // Announce the new orientation number
-      ctrl.checkViewPort();
-    }, false);
+    window.onresize = (e) =>
+    {
+        ctrl.checkViewPort();
+    };
+    window.onorientationchange = (e) =>
+    {
+        ctrl.checkViewPort();
+    };
 
     this.checkViewPort();
     console.log("Body");
@@ -38,8 +42,8 @@ export class BodyComponent {
   }
 
   checkViewPort () {
-    console.log(window.screen.height);
-    if (window.screen.height < 660) {
+    console.log(window.innerHeight);
+    if (window.innerHeight < 600) {
       this.viewportSmall = true;
     } else {
       this.viewportSmall = false;
