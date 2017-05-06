@@ -1,7 +1,16 @@
 declare var $: any;
 
 export class BodyComponent {
+  viewportSmall = false;
+
   init (anchors, colors) {
+    var ctrl = this;
+    window.addEventListener("orientationchange", function() {
+      // Announce the new orientation number
+      ctrl.checkViewPort();
+    }, false);
+
+    this.checkViewPort();
     console.log("Body");
     if($('html').hasClass('fp-enabled')){
       $('#body-fullpage').fullpage.destroy('all');
@@ -26,5 +35,14 @@ export class BodyComponent {
       scrollingSpeed: 1000,
       navigation: true
     });
+  }
+
+  checkViewPort () {
+    console.log(window.screen.height);
+    if (window.screen.height < 660) {
+      this.viewportSmall = true;
+    } else {
+      this.viewportSmall = false;
+    }
   }
 }

@@ -29,14 +29,16 @@
             complicated tasks easier.
           </p>
           <br>
-          <h4>Other technology interests</h4>
-          <ul>
-            <li>React</li>
-            <li>React Native</li>
-            <li>MEAN Stack</li>
-            <li>Unity</li>
-            <li>Internet of Things (IoT)</li>
-          </ul>
+          <div *ngIf="!viewportSmall" [@flyInOut]="viewportSmall">
+            <h4>Other technology interests</h4>
+            <ul>
+              <li>React</li>
+              <li>React Native</li>
+              <li>MEAN Stack</li>
+              <li>Unity</li>
+              <li>Internet of Things (IoT)</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
