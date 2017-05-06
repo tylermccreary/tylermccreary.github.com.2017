@@ -42,7 +42,6 @@ export class BodyComponent {
   }
 
   checkViewPort () {
-    console.log(window.innerHeight);
     if (window.innerHeight < 600) {
       this.viewportSmall = true;
     } else {

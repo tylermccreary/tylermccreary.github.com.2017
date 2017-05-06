@@ -23,7 +23,7 @@ export class NavComponent {
     $('nav').mouseleave(function() {
       ctrl.navHover = false;
     });
-    $('body').click(function() {
+    $('html').click(function() {
       if (!ctrl.navHover) {
         ctrl.collapse();
       }
