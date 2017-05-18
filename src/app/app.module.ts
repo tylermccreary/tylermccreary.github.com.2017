@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { MnFullpageModule } from 'ngx-fullpage';
+import { CollapseModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HomeComponent }   from './home/home.component';
@@ -11,7 +12,9 @@ import { AboutComponent }      from './about/about.component';
 import { ContactComponent }  from './contact/contact.component';
 import { ExperienceComponent }  from './experience/experience.component';
 import { NavComponent } from './nav/nav.component';
-import { CollapseModule } from 'ngx-bootstrap';
+import { MapPageComponent } from './map/mappage.component';
+
+import { Script } from './map/script.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { CollapseModule } from 'ngx-bootstrap';
     AboutComponent,
     ContactComponent,
     ExperienceComponent,
-    NavComponent
+    NavComponent,
+    MapPageComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ import { CollapseModule } from 'ngx-bootstrap';
     CollapseModule.forRoot(),
     MnFullpageModule.forRoot()
   ],
-  providers: [],
+  providers: [Script],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

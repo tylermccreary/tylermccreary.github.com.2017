@@ -36,6 +36,12 @@
                       <span class="sr-only">(current)</span>
                     </a>
                 </li>
+                <li router-active>
+                    <a [routerLinkActive]="['is-active']" routerLink="/map" (click)="collapse()">
+                      MAP
+                      <span class="sr-only">(current)</span>
+                    </a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li>

@@ -5,6 +5,8 @@ import { AboutComponent }      from './about/about.component';
 import { ContactComponent }  from './contact/contact.component';
 import { ExperienceComponent }  from './experience/experience.component';
 import { NavComponent } from './nav/nav.component';
+import { MapPageComponent } from './map/mappage.component';
+
 const routes: Routes = [
   { path: '',
     component: NavComponent,
@@ -13,7 +15,8 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
-      { path: 'experience', component: ExperienceComponent }
+      { path: 'experience', component: ExperienceComponent },
+      { path: 'map', component: MapPageComponent }
     ]},
     { path: '**', redirectTo: '/home'}
 
