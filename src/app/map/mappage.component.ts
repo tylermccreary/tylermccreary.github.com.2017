@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Color } from '../color';
 declare var $: any;
 declare var require: any;
@@ -13,10 +13,18 @@ declare var H: any;
 export class MapPageComponent {
   platform;
   script;
+  defaultLayers;
+  mapCreated = false;
 
   constructor (script: Script){
     this.script = script;
   };
+
+  @HostListener('window:resize', ['$event']) onResize(event) {
+    if (this.mapCreated) {
+      this.drawMap();
+    }
+  }
 
   ngOnInit () {
     var ctrl = this;
@@ -25,13 +33,13 @@ export class MapPageComponent {
     //     ctrl.initMap();
     //  });
 
-    this.script.load('core', 'service').then(data => {
+    this.script.load('core', 'service', 'ui', 'mapevents').then(data => {
             console.log(H);
             this.initMap();
         }).catch(error => console.log(error));
     $('#fp-nav').remove();
-    $('body').css('background-color', Color.homeBackground);
-    $('nav.navbar-default').css("background-color", Color.homeBackground);
+    $('body').css('background-color', Color.mapBackground);
+    $('nav.navbar-default').css("background-color", Color.mapBackground);
   }
 
   initMap = () => {
@@ -41,15 +49,29 @@ export class MapPageComponent {
       'app_id': 'CPks8WOrQyH798qpPuhx',
       'app_code': 'ZL74Dp_Ovt6xj6IHRuoAGQ'
     });
-    var defaultLayers = this.platform.createDefaultLayers();
+    this.defaultLayers = this.platform.createDefaultLayers();
 
+    this.drawMap();
+  }
+
+  drawMap = () => {
+    document.getElementById('mapContainer').innerHTML = "";
     // // Instantiate (and display) a map object:
     var map = new H.Map(
       document.getElementById('mapContainer'),
-      defaultLayers.normal.map,
+      this.defaultLayers.normal.map,
       {
         zoom: 10,
         center: { lat: 52.5, lng: 13.4 }
-      });
+      }
+    );
+    this.mapCreated = true;
+    var ui = H.ui.UI.createDefault(map, this.defaultLayers);
+
+    // Add map events functionality to the map
+    var mapEvents = new H.mapevents.MapEvents(map);
+
+    // Add behavior to the map: panning, zooming, dragging.
+    var behavior = new H.mapevents.Behavior(mapEvents);
   }
 }

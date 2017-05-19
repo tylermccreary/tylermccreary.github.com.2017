@@ -8,4 +8,5 @@ export class Color {
   public static vertBackground = "#00996C";
   public static projectsBackground = "#003366";
   public static contactBackground = "#005E3E";
+  public static mapBackground = "#010B1E";
 }
