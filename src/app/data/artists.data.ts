@@ -215,74 +215,74 @@ export const ARTISTS: Artist[] = [
     spotifyArtistId: '1xD85sp0kecIVuMwUHShxs'
   },
   {
-    id: 34,
+    id: 35,
     name: 'Irontom',
     genres: ['Indie Rock'],
     spotifyArtistId: '4KY9rCrokaoFzvMfX98u1q'
   },
   {
-    id: 35,
+    id: 36,
     name: 'Weezer',
     genres: ['Alternative Rock', 'Power Pop', 'Pop Punk', 'Emo', 'Indie Rock'],
     spotifyArtistId: '3jOstUTkEu2JkjvRdBA5Gu'
   },
   {
-    id: 36,
+    id: 37,
     name: 'Panic! At The Disco',
     genres: ['Pop Rock', 'Pop', 'Pop Punk', 'Baroque Pop', 'Emo Pop', 'Alternative Rock'],
     spotifyArtistId: '20JZFwl6HVl6yg8a4H3ZqK'
   },
   {
-    id: 37,
+    id: 38,
     name: 'U2',
     genres: ['Rock', 'Alternative Rock', 'Post-Punk'],
     spotifyArtistId: '51Blml2LZPmy7TTiAg47vQ'
   },
   {
-    id: 38,
+    id: 39,
     name: 'Mumford & Sons',
     genres: ['Folk Rock', 'Neo-Folk', 'Alternative Rock'],
     spotifyArtistId: '3gd8FJtBJtkRxdfbTu19U2'
   },
   {
-    id: 39,
+    id: 40,
     name: 'Fastball',
     genres: ['Alternative Rock', 'Pop Rock'],
     spotifyArtistId: '7FtVJzRtpQpU61nBwB7cKN'
   },
   {
-    id: 40,
+    id: 41,
     name: 'Vertcal Horizon',
     genres: ['Alternative Rock', 'Post-Grunge', 'Pop Rock', 'Acoustic Rock'],
     spotifyArtistId: '6Hizgjo92FnMp8wGaRUNTn'
   },
   {
-    id: 41,
+    id: 42,
     name: 'Florence and the Machine',
     genres: ['Indie Rock', 'Indie Pop', 'Baroque Pop', 'Chamber Pop', 'Art Rock',
     'Art Pop', 'Neo Soul', 'Folk'],
     spotifyArtistId: '1moxjboGR7GNWYIMWsRjgG'
   },
   {
-    id: 42,
+    id: 43,
     name: 'Coldplay',
     genres: ['Alternative Rock', 'Post-Britpop', 'Pop Rock', 'Pop'],
     spotifyArtistId: '4gzpq5DPGxSnKTe4SA8HAU'
   },
   {
-    id: 43,
+    id: 44,
     name: 'Jim Gaffigan',
     genres: ['Observational Comedy', 'Surreal Humor', 'Deadpan', 'Sarcasm', 'Satire'],
     spotifyArtistId: '0f4zEF6vddRYg7Y3GDL8lk'
   },
   {
-    id: 44,
+    id: 45,
     name: 'Jeff Dunham',
     genres: ['Ventriloquism', 'Observational Comedy', 'Black Comedy'],
     spotifyArtistId: '6LQTcsnz73GAgqVfdSx09o'
   },
   {
-    id: 45,
+    id: 46,
     name: 'Colin Jost',
     genres: ['Comedy'],
     spotifyArtistId: ''

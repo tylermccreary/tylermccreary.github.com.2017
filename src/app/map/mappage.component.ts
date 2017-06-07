@@ -5,12 +5,13 @@ declare var require: any;
 import { Script } from './script.service';
 declare var H: any;
 import { ShowService } from '../data/shows.service';
+import { ArtistService } from '../data/artists.service';
 
 @Component({
   selector: 'app-mappage',
   templateUrl: './mappage.component.html',
   styleUrls: ['./mappage.component.scss'],
-  providers: [ ShowService ]
+  providers: [ ShowService, ArtistService ]
 })
 export class MapPageComponent {
   platform;
@@ -19,8 +20,10 @@ export class MapPageComponent {
   mapCreated = false;
   shows;
   map;
+  ui;
+  artists;
 
-  constructor (script: Script, private showService: ShowService){
+  constructor (script: Script, private showService: ShowService, private artistService: ArtistService){
     this.script = script;
   };
 
@@ -57,6 +60,7 @@ export class MapPageComponent {
 
     this.drawMap();
     this.getShows();
+    this.getArtists();
   }
 
   drawMap = () => {
@@ -71,7 +75,7 @@ export class MapPageComponent {
       }
     );
     this.mapCreated = true;
-    var ui = H.ui.UI.createDefault(this.map, this.defaultLayers);
+    this.ui = H.ui.UI.createDefault(this.map, this.defaultLayers);
 
     // Add map events functionality to the map
     var mapEvents = new H.mapevents.MapEvents(this.map);
@@ -87,42 +91,62 @@ export class MapPageComponent {
     });
   }
 
-  addMarkers = () => {
-    // var animatedSvg =
-    //   '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" ' +
-    //   'y="0px" style="margin:-112px 0 0 -32px" width="136px"' +
-    //   'height="150px" viewBox="0 0 136 150"><ellipse fill="#000" ' +
-    //   'cx="32" cy="128" rx="36" ry="4"><animate attributeName="cx" ' +
-    //   'from="32" to="32" begin="0s" dur="1.5s" values="96;32;96" ' +
-    //   'keySplines=".6 .1 .8 .1; .1 .8 .1 1" keyTimes="0;0.4;1"' +
-    //   'calcMode="spline" repeatCount="indefinite"/>' +
-    //   '<animate attributeName="rx" from="36" to="36" begin="0s"' +
-    //   'dur="1.5s" values="36;10;36" keySplines=".6 .0 .8 .0; .0 .8 .0 1"' +
-    //   'keyTimes="0;0.4;1" calcMode="spline" repeatCount="indefinite"/>' +
-    //   '<animate attributeName="opacity" from=".2" to=".2"  begin="0s" ' +
-    //   ' dur="1.5s" values=".1;.7;.1" keySplines=" .6.0 .8 .0; .0 .8 .0 1" ' +
-    //   'keyTimes=" 0;0.4;1" calcMode="spline" ' +
-    //   'repeatCount="indefinite"/></ellipse><ellipse fill="#1b468d" ' +
-    //   'cx="26" cy="20" rx="16" ry="12"><animate attributeName="cy" ' +
-    //   'from="20" to="20" begin="0s" dur="1.5s" values="20;112;20" ' +
-    //   'keySplines=".6 .1 .8 .1; .1 .8 .1 1" keyTimes=" 0;0.4;1" ' +
-    //   'calcMode="spline" repeatCount="indefinite"/> ' +
-    //   '<animate attributeName="ry" from="16" to="16" begin="0s" ' +
-    //   'dur="1.5s" values="16;12;16" keySplines=".6 .0 .8 .0; .0 .8 .0 1" ' +
-    //   'keyTimes="0;0.4;1" calcMode="spline" ' +
-    //   'repeatCount="indefinite"/></ellipse></svg>';
-    for (var i = 0; i < this.shows.length; i++) {
+  getArtists = () => {
+    this.artistService.getArtists().then(artists => {
+      this.artists = artists;
+    });
+  }
 
-      var svg =
-        '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" ' +
-        'y="0px" style="margin:-64px 0 0 -64px" width="128px"' +
-        'height="128px" viewBox="0 0 136 150"><circle fill="#1ED760" ' +
-        'cx="64" cy="64" r="10" stroke="#010B1E" stroke-width="1.5">' +
-        '</circle></svg>';
+  markerClick = (clonedElement, domIcon, domMarker) => {
+    console.log(domMarker);
+    var artistsDOM = '';
+    for (var i = 0; i < domMarker.data.artistIDs.length; i++) {
+      var currentArtist = this.artists[domMarker.data.artistIDs[i]];
+      console.log(currentArtist);
+      if (i == 0) {
+        artistsDOM += '<span style="font-size: 12px">artists:</span><br> ' +
+        '<a class="artist headliner" href="https://play.spotify.com/artist/' + currentArtist.spotifyArtistId + '" target="_blank">' +
+          currentArtist.name + '</a>';
+      } else {
+        artistsDOM +=
+        '<br><a class="artist" href="https://play.spotify.com/artist/' + currentArtist.spotifyArtistId + '" target="_blank">' +
+          currentArtist.name + '</a>';
+      }
+    }
+    var bubble =  new H.ui.InfoBubble(domMarker.getPosition(), {
+      // read custom data
+      content:  '<div class="info-bubble"><h5 style="font-weight: bold">' + domMarker.data.title + '</h5>' +
+                artistsDOM + '</div>'
+    });
+    // show info bubble
+    this.ui.addBubble(bubble);
+  }
+
+  addMarkers = () => {
+    for (var i = 0; i < this.shows.length; i++) {
+      var div = '<div class="circle">';
+      var show = this.shows[i];
+      var ctrl = this;
       // Create an icon object, an object with geographic coordinates and a marker:
-      var icon = new H.map.DomIcon(svg),
-        marker = new H.map.DomMarker({lat: this.shows[i].location.latitude,
-          lng: this.shows[i].location.longitude}, {icon: icon});
+      var icon = new H.map.DomIcon(div, {
+        // the function is called every time marker enters the viewport
+        onAttach: function(clonedElement, domIcon, domMarker) {
+          clonedElement.addEventListener('click',
+            function() {
+              ctrl.markerClick(clonedElement, domIcon, domMarker);
+            });
+        },
+        // the function is called every time marker leaves the viewport
+        onDetach: function(clonedElement, domIcon, domMarker) {
+          clonedElement.removeEventListener('click',
+            function() {
+              ctrl.markerClick(clonedElement, domIcon, domMarker);
+            });
+        }
+      });
+      var marker = new H.map.DomMarker({lat: this.shows[i].location.latitude,
+        lng: this.shows[i].location.longitude}, {icon: icon});
+      marker.data = this.shows[i];
       this.map.addObject(marker);
     }
   }

@@ -20,7 +20,7 @@ export const SHOWS: Show[] = [
   {
     id: 1,
     title: "Red Hot Chili Peppers (Dark Necessities Tour)",
-    artistIDs: [7, 34],
+    artistIDs: [7, 35],
     venue: "Wells Fargo Arena",
     location: {
       latitude: 41.5926,
