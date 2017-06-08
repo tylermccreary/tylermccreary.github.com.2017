@@ -25,6 +25,7 @@ export class MapPageComponent {
   mapEvents;
   mapBehaviors;
   mapRect;
+  mapBaseLayer;
 
   constructor (script: Script, private showService: ShowService, private artistService: ArtistService){
     this.script = script;
@@ -33,6 +34,7 @@ export class MapPageComponent {
   @HostListener('window:resize', ['$event']) onResize(event) {
     if (this.mapCreated) {
       this.drawMap();
+      this.map.setBaseLayer(this.mapBaseLayer);
     }
   }
 
@@ -79,6 +81,9 @@ export class MapPageComponent {
     }
     this.map.addEventListener('mapviewchangeend', function(evt) {
       ctrl.mapRect = ctrl.map.getViewBounds();
+    });
+    this.map.addEventListener('baselayerchange', function(evt) {
+      ctrl.mapBaseLayer = ctrl.map.getBaseLayer();
     });
     this.ui = H.ui.UI.createDefault(this.map, this.defaultLayers);
 
