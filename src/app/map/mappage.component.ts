@@ -22,6 +22,9 @@ export class MapPageComponent {
   map;
   ui;
   artists;
+  mapEvents;
+  mapBehaviors;
+  mapRect;
 
   constructor (script: Script, private showService: ShowService, private artistService: ArtistService){
     this.script = script;
@@ -34,12 +37,6 @@ export class MapPageComponent {
   }
 
   ngOnInit () {
-    var ctrl = this;
-    // require.ensure(['http://js.api.here.com/v3/3.0/mapsjs-service.js'], require => {
-    //     ctrl.H = require('http://js.api.here.com/v3/3.0/mapsjs-service.js');
-    //     ctrl.initMap();
-    //  });
-
     this.script.load('core', 'service', 'ui', 'mapevents').then(data => {
             console.log(H);
             this.initMap();
@@ -75,13 +72,21 @@ export class MapPageComponent {
       }
     );
     this.mapCreated = true;
+    var ctrl = this;
+    if (this.mapRect) {
+      console.log(this.mapRect);
+      this.map.setViewBounds(this.mapRect, false);
+    }
+    this.map.addEventListener('mapviewchangeend', function(evt) {
+      ctrl.mapRect = ctrl.map.getViewBounds();
+    });
     this.ui = H.ui.UI.createDefault(this.map, this.defaultLayers);
 
     // Add map events functionality to the map
-    var mapEvents = new H.mapevents.MapEvents(this.map);
-
+    this.mapEvents = new H.mapevents.MapEvents(this.map);
     // Add behavior to the map: panning, zooming, dragging.
-    var behavior = new H.mapevents.Behavior(mapEvents);
+    this.mapBehaviors = new H.mapevents.Behavior(this.mapEvents);
+    this.addMarkers();
   }
 
   getShows = () => {
@@ -97,7 +102,7 @@ export class MapPageComponent {
     });
   }
 
-  markerClick = (clonedElement, domIcon, domMarker) => {
+  addBubbleOnMarkerClick = (clonedElement, domIcon, domMarker) => {
     console.log(domMarker);
     var artistsDOM = '';
     for (var i = 0; i < domMarker.data.artistIDs.length; i++) {
@@ -123,31 +128,32 @@ export class MapPageComponent {
   }
 
   addMarkers = () => {
-    for (var i = 0; i < this.shows.length; i++) {
-      var div = '<div class="circle">';
-      var show = this.shows[i];
-      var ctrl = this;
-      // Create an icon object, an object with geographic coordinates and a marker:
-      var icon = new H.map.DomIcon(div, {
-        // the function is called every time marker enters the viewport
-        onAttach: function(clonedElement, domIcon, domMarker) {
-          clonedElement.addEventListener('click',
-            function() {
-              ctrl.markerClick(clonedElement, domIcon, domMarker);
-            });
-        },
-        // the function is called every time marker leaves the viewport
-        onDetach: function(clonedElement, domIcon, domMarker) {
-          clonedElement.removeEventListener('click',
-            function() {
-              ctrl.markerClick(clonedElement, domIcon, domMarker);
-            });
-        }
-      });
-      var marker = new H.map.DomMarker({lat: this.shows[i].location.latitude,
-        lng: this.shows[i].location.longitude}, {icon: icon});
-      marker.data = this.shows[i];
-      this.map.addObject(marker);
+    if (this.shows && this.map.getObjects().length == 0) {
+      for (var i = 0; i < this.shows.length; i++) {
+        var div = '<div class="circle">';
+        var ctrl = this;
+        // Create an icon object, an object with geographic coordinates and a marker:
+        var icon = new H.map.DomIcon(div, {
+          // the function is called every time marker enters the viewport
+          onAttach: function(clonedElement, domIcon, domMarker) {
+            clonedElement.addEventListener('click',
+              function() {
+                ctrl.addBubbleOnMarkerClick(clonedElement, domIcon, domMarker);
+              });
+          },
+          // the function is called every time marker leaves the viewport
+          onDetach: function(clonedElement, domIcon, domMarker) {
+            clonedElement.removeEventListener('click',
+              function() {
+                ctrl.addBubbleOnMarkerClick(clonedElement, domIcon, domMarker);
+              });
+          }
+        });
+        var marker = new H.map.DomMarker({lat: this.shows[i].location.latitude,
+          lng: this.shows[i].location.longitude}, {icon: icon});
+        marker.data = this.shows[i];
+        this.map.addObject(marker);
+      }
     }
   }
 }
