@@ -86,10 +86,7 @@ export class MapPageComponent {
       ctrl.mapBaseLayer = ctrl.map.getBaseLayer();
     });
     this.ui = H.ui.UI.createDefault(this.map, this.defaultLayers);
-
-    // Add map events functionality to the map
     this.mapEvents = new H.mapevents.MapEvents(this.map);
-    // Add behavior to the map: panning, zooming, dragging.
     this.mapBehaviors = new H.mapevents.Behavior(this.mapEvents);
     this.addMarkers();
   }
@@ -115,20 +112,21 @@ export class MapPageComponent {
       console.log(currentArtist);
       if (i == 0) {
         artistsDOM += '<span style="font-size: 12px">artists:</span><br> ' +
-        '<a class="artist headliner" href="https://play.spotify.com/artist/' + currentArtist.spotifyArtistId + '" target="_blank">' +
+          '<a class="artist headliner" href="https://play.spotify.com/artist/' +
+          currentArtist.spotifyArtistId + '" target="_blank">' +
           currentArtist.name + '</a>';
       } else {
         artistsDOM +=
-        '<br><a class="artist" href="https://play.spotify.com/artist/' + currentArtist.spotifyArtistId + '" target="_blank">' +
+          '<br><a class="artist" href="https://play.spotify.com/artist/' +
+          currentArtist.spotifyArtistId + '" target="_blank">' +
           currentArtist.name + '</a>';
       }
     }
     var bubble =  new H.ui.InfoBubble(domMarker.getPosition(), {
-      // read custom data
-      content:  '<div class="info-bubble"><h5 style="font-weight: bold">' + domMarker.data.title + '</h5>' +
-                artistsDOM + '</div>'
+      content:  '<div class="info-bubble"><h5 style="font-weight: bold">' +
+         domMarker.data.title + '</h5>' +
+         artistsDOM + '</div>'
     });
-    // show info bubble
     this.ui.addBubble(bubble);
   }
 
@@ -146,7 +144,6 @@ export class MapPageComponent {
                 ctrl.addBubbleOnMarkerClick(clonedElement, domIcon, domMarker);
               });
           },
-          // the function is called every time marker leaves the viewport
           onDetach: function(clonedElement, domIcon, domMarker) {
             clonedElement.removeEventListener('click',
               function() {

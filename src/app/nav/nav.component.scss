@@ -23,11 +23,24 @@ nav {
             border-bottom: 4px solid #FF9912;
           }
         }
+      }
+    }
 
-        @media only screen and (max-width: 767px) {
-          a:hover, .is-active {
-            border-left: 4px solid $interactive;
-          }
+
+    @media only screen and (max-width: 767px) {
+      a {
+        display: inline-block;
+      }
+
+      .navbar-left {
+        a:hover, .is-active {
+          border-left: 4px solid $interactive;
+        }
+      }
+
+      .navbar-right {
+        a:hover, .is-active {
+          // border-right: 4px solid $interactive;
         }
       }
     }
@@ -51,6 +64,15 @@ nav {
   @media only screen and (max-width: 767px) {
     .navbar-collapse.show {
       background-color: rgba(255, 255, 255, .2);
+      height: 100vh;
+
+      .navbar-left {
+        float: left;
+      }
+
+      .navbar-right {
+        float: right;
+      }
     }
   }
 }
