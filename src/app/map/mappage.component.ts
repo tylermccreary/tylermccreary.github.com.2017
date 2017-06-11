@@ -28,6 +28,8 @@ export class MapPageComponent {
   mapRect;
   mapBaseLayer;
   mobile;
+  KC_COORDS = { lat: 39.0997, lng: -94.5786 };
+  zoom;
 
   constructor (script: Script, private showService: ShowService, private artistService: ArtistService){
     this.script = script;
@@ -42,7 +44,11 @@ export class MapPageComponent {
 
   ngOnInit () {
     this.mobile = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
-    console.log(this.mobile);
+    if (this.mobile) {
+      this.zoom = 3;
+    } else {
+      this.zoom = 4;
+    }
     this.script.load('core', 'service', 'ui', 'mapevents').then(data => {
             console.log(H);
             this.initMap();
@@ -74,8 +80,8 @@ export class MapPageComponent {
       document.getElementById('mapContainer'),
       this.defaultLayers.normal.map,
       {
-        zoom: 4,
-        center: { lat: 41.9484, lng: -87.6553 }
+        zoom: this.zoom,
+        center: this.KC_COORDS
       }
     );
     this.mapCreated = true;
