@@ -29,3 +29,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 #Deploying to Github
 ng build --prod --base-href "https://tylermccreary.github.io"
 sudo ngh --branch=master
+
+Code for this repository can be found in the "code" branch
