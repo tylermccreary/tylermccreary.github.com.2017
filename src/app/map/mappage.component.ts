@@ -52,8 +52,9 @@ export class MapPageComponent {
     console.log(H);
     // Obtain the default map types from the platform object:
     this.platform = new H.service.Platform({
-      'app_id': 'CPks8WOrQyH798qpPuhx',
-      'app_code': 'ZL74Dp_Ovt6xj6IHRuoAGQ'
+      'app_id': app_id,
+      'app_code': app_code,
+      useHTTPS: true
     });
     this.defaultLayers = this.platform.createDefaultLayers();
 
