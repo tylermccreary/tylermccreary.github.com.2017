@@ -28,7 +28,7 @@ export class MapPageComponent {
   mapRect;
   mapBaseLayer;
   mobile;
-  KC_COORDS = { lat: 39.0997, lng: -94.5786 };
+  DES_MOINES_COORDS = { lat: 41.6005, lng: -93.6091 };
   zoom;
 
   constructor (script: Script, private showService: ShowService, private artistService: ArtistService){
@@ -79,7 +79,7 @@ export class MapPageComponent {
       this.defaultLayers.normal.map,
       {
         zoom: this.zoom,
-        center: this.KC_COORDS
+        center: this.DES_MOINES_COORDS
       }
     );
     this.mapCreated = true;
