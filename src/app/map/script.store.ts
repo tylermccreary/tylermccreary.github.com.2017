@@ -3,8 +3,8 @@ interface Scripts {
    src: string;
 }
 export const ScriptStore: Scripts[] = [
-   { name: 'core', src: 'http://js.api.here.com/v3/3.0/mapsjs-core.js' },
-   { name: 'service', src: 'http://js.api.here.com/v3/3.0/mapsjs-service.js' },
-   { name: 'ui', src: 'http://js.api.here.com/v3/3.0/mapsjs-ui.js' },
-   { name: 'mapevents', src: 'http://js.api.here.com/v3/3.0/mapsjs-mapevents.js' }
+   { name: 'core', src: 'https://js.api.here.com/v3/3.0/mapsjs-core.js' },
+   { name: 'service', src: 'https://js.api.here.com/v3/3.0/mapsjs-service.js' },
+   { name: 'ui', src: 'https://js.api.here.com/v3/3.0/mapsjs-ui.js' },
+   { name: 'mapevents', src: 'https://js.api.here.com/v3/3.0/mapsjs-mapevents.js' }
 ];
