@@ -6,6 +6,7 @@ import { Script } from './script.service';
 declare var H: any;
 import { ShowService } from '../data/shows.service';
 import { ArtistService } from '../data/artists.service';
+import * as globalValues from '../../globals';
 
 @Component({
   selector: 'app-mappage',
@@ -52,9 +53,9 @@ export class MapPageComponent {
     console.log(H);
     // Obtain the default map types from the platform object:
     this.platform = new H.service.Platform({
-      'app_id': app_id,
-      'app_code': app_code,
-      useHTTPS: true
+      'app_id': globalValues.APP_ID,
+      'app_code': globalValues.APP_CODE,
+      'useHTTPS': true
     });
     this.defaultLayers = this.platform.createDefaultLayers();
 
