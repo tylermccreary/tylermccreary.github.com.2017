@@ -27,6 +27,7 @@ export class MapPageComponent {
   mapBehaviors;
   mapRect;
   mapBaseLayer;
+  mobile;
 
   constructor (script: Script, private showService: ShowService, private artistService: ArtistService){
     this.script = script;
@@ -40,6 +41,8 @@ export class MapPageComponent {
   }
 
   ngOnInit () {
+    this.mobile = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
+    console.log(this.mobile);
     this.script.load('core', 'service', 'ui', 'mapevents').then(data => {
             console.log(H);
             this.initMap();
@@ -141,16 +144,32 @@ export class MapPageComponent {
         var icon = new H.map.DomIcon(div, {
           // the function is called every time marker enters the viewport
           onAttach: function(clonedElement, domIcon, domMarker) {
-            clonedElement.addEventListener('click',
-              function() {
-                ctrl.addBubbleOnMarkerClick(clonedElement, domIcon, domMarker);
-              });
+            if (ctrl.mobile) {
+              clonedElement.addEventListener('mouseover',
+                function() {
+                  console.log("hover");
+                  ctrl.addBubbleOnMarkerClick(clonedElement, domIcon, domMarker);
+                });
+            } else {
+              clonedElement.addEventListener('click',
+                function() {
+                  ctrl.addBubbleOnMarkerClick(clonedElement, domIcon, domMarker);
+                });
+            }
           },
           onDetach: function(clonedElement, domIcon, domMarker) {
-            clonedElement.removeEventListener('click',
-              function() {
-                ctrl.addBubbleOnMarkerClick(clonedElement, domIcon, domMarker);
-              });
+            if (ctrl.mobile) {
+              clonedElement.removeEventListener('mouseover',
+                function() {
+                  console.log("hover");
+                  ctrl.addBubbleOnMarkerClick(clonedElement, domIcon, domMarker);
+                });
+            } else {
+              clonedElement.removeEventListener('click',
+                function() {
+                  ctrl.addBubbleOnMarkerClick(clonedElement, domIcon, domMarker);
+                });
+            }
           }
         });
         var marker = new H.map.DomMarker({lat: this.shows[i].location.latitude,
