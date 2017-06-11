@@ -151,7 +151,7 @@ export class MapPageComponent {
           // the function is called every time marker enters the viewport
           onAttach: function(clonedElement, domIcon, domMarker) {
             if (ctrl.mobile) {
-              clonedElement.addEventListener('pointerenter',
+              clonedElement.addEventListener('touchstart',
                 function() {
                   console.log("hover");
                   ctrl.addBubbleOnMarkerClick(clonedElement, domIcon, domMarker);
@@ -165,7 +165,7 @@ export class MapPageComponent {
           },
           onDetach: function(clonedElement, domIcon, domMarker) {
             if (ctrl.mobile) {
-              clonedElement.removeEventListener('pointerenter',
+              clonedElement.removeEventListener('touchstart',
                 function() {
                   console.log("hover");
                   ctrl.addBubbleOnMarkerClick(clonedElement, domIcon, domMarker);
