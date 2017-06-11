@@ -50,7 +50,6 @@ export class MapPageComponent {
       this.zoom = 4;
     }
     this.script.load('core', 'service', 'ui', 'mapevents').then(data => {
-            console.log(H);
             this.initMap();
         }).catch(error => console.log(error));
     $('#fp-nav').remove();
@@ -59,7 +58,6 @@ export class MapPageComponent {
   }
 
   initMap = () => {
-    console.log(H);
     // Obtain the default map types from the platform object:
     this.platform = new H.service.Platform({
       'app_id': globalValues.APP_ID,
@@ -87,7 +85,6 @@ export class MapPageComponent {
     this.mapCreated = true;
     var ctrl = this;
     if (this.mapRect) {
-      console.log(this.mapRect);
       this.map.setViewBounds(this.mapRect, false);
     }
     this.map.addEventListener('mapviewchangeend', function(evt) {
@@ -116,11 +113,9 @@ export class MapPageComponent {
   }
 
   addBubbleOnMarkerClick = (clonedElement, domIcon, domMarker) => {
-    console.log(domMarker);
     var artistsDOM = '';
     for (var i = 0; i < domMarker.data.artistIDs.length; i++) {
       var currentArtist = this.artists[domMarker.data.artistIDs[i]];
-      console.log(currentArtist);
       if (i == 0) {
         artistsDOM += '<span style="font-size: 12px">artists:</span><br> ' +
           '<a class="artist headliner" href="https://play.spotify.com/artist/' +
@@ -153,7 +148,6 @@ export class MapPageComponent {
             if (ctrl.mobile) {
               clonedElement.addEventListener('touchstart',
                 function() {
-                  console.log("hover");
                   ctrl.addBubbleOnMarkerClick(clonedElement, domIcon, domMarker);
                 });
             } else {
@@ -167,7 +161,6 @@ export class MapPageComponent {
             if (ctrl.mobile) {
               clonedElement.removeEventListener('touchstart',
                 function() {
-                  console.log("hover");
                   ctrl.addBubbleOnMarkerClick(clonedElement, domIcon, domMarker);
                 });
             } else {
